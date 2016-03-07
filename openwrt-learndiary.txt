@@ -1,0 +1,2 @@
+2016.03.07
+添加net-snmp成功,一直以来添加snmp的时候由于增添的功能必须链接uci和pthread的库，所以在编译的时候一直没有成功，原因是由于在package/utils/net-snmp(自己添加的功能，实际就是上次那个net-snmp)的Makefile没有书写成功，在单独的每个编译的依赖上添加DEPENDS:=+lubuci,其实就是加上了libuci的库，使用了+libuci,就行了，一切都搞定了。配置里添上自己的mib部分。
