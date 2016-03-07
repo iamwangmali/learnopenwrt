@@ -1,2 +1,4 @@
+﻿2016.03.04
+增加net-snmp的部分，在https://dev.openwrt.org/wiki/GetSource,看到12.09的package里面，会在branches/packages_12.09/net/net-snmp里面，当然也可以把整个packages_12.09整个clone下来，这样对于net-snmp的包就不用自己写Makefile了，很方便，然后make package/utils/net-snmp/compile就能顺利编译成功了，由于工作的时候添加了一部分功能，所以我把更改的那个包打包之后，整个放在了openwrt主目录的dl文件夹下。
 2016.03.07
 添加net-snmp成功,一直以来添加snmp的时候由于增添的功能必须链接uci和pthread的库，所以在编译的时候一直没有成功，原因是由于在package/utils/net-snmp(自己添加的功能，实际就是上次那个net-snmp)的Makefile没有书写成功，在单独的每个编译的依赖上添加DEPENDS:=+lubuci,其实就是加上了libuci的库，使用了+libuci,就行了，一切都搞定了。配置里添上自己的mib部分。
